@@ -102,7 +102,7 @@ object Factoria {
             1 -> "Lanzallamas"
             2 -> "T-Rex"
             3 -> "Tribu Canibal"
-            else -> "Abrazo"
+            else -> "Black Hole"
         }
         var t:Trampa = Trampa.Builder().nombre(nombre).build()
         return t
