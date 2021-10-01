@@ -1,4 +1,4 @@
-open class Tributo {
+class Tributo {
     private var nombre:String?=""
     private var vida:Int?=0
     private var fuerza:Int?=0

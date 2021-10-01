@@ -1,19 +1,13 @@
-class Arma (n:String?, f:Int?, Desc:String):Item(Desc) {
+class Arma (n:String?, f:Int?, Desc:String?):Item(Desc) {
 
-    private var nombre:String?=""
-    private var fuerza:Int?=0
-    private var Descrip:String=""
+    private var nombre:String?=n
+    private var fuerza:Int?=f
+    private var Descrip:String?=Desc
 
-    /*constructor(n:String?, f:Int?):Item(Desc) {
-        this.nombre = n
-        this.fuerza = f
-        this.Descript = Desc
-    }*/
-
-    override fun Descripcion(): String {
+    /*override fun Descripcion(): String {
         return "Ha cogido un Super-Arma"
-    }
-    class Builder(var nombre:String? = null, var fuerza:Int? = null){
+    }*/
+    class Builder(var nombre:String? = null, var fuerza:Int? = null, var Descrip:String?=null){
         fun nombre(nombre:String):Builder{
             this.nombre = nombre
             return this
@@ -22,8 +16,12 @@ class Arma (n:String?, f:Int?, Desc:String):Item(Desc) {
             this.fuerza = fuerza
             return this
         }
+        fun Descrip(Descrip:String):Builder{
+            this.Descrip = Descrip
+            return this
+        }
         fun build():Arma{
-            return Arma(nombre, fuerza)
+            return Arma(nombre, fuerza,Descrip)
         }
     }
 }
