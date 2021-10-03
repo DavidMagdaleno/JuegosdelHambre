@@ -1,13 +1,17 @@
+import jdk.nashorn.internal.runtime.arrays.ArrayIndex
 import kotlin.random.Random
 
 object Factoria {
 
     fun generarTributo(nDis:Int):Tributo {
-        var nomAzar:Int = Random.nextInt(1,3)
+        var nomAzar:Int = Random.nextInt(1,7)
         var nombre:String = when(nomAzar){
             1 -> "WonderWoman"
-            2 -> "David"
-            3 -> "Sara"
+            2 -> "Superman"
+            3 -> "Batman"
+            4 -> "Obi-one"
+            5 -> "Lara Croft"
+            6 -> "Van Helsing"
             else -> "Sin Nombre"
         }
         var vida:Int = Random.nextInt(0,100)
@@ -16,25 +20,22 @@ object Factoria {
         var t:Tributo = Tributo.Builder().nombre(nombre).vida(vida).fuerza(fuerza).Distrito(Distrito).build()
         return t
     }
-    fun generarDistrito(nDis:Int):Distrito {
-        //var aux:Array<Tributo> = Array<Tributo>(2)
-        var aux= arrayOfNulls<Tributo?>(2)
-        //Distrito d =new Distrito(Array<Tributo>)
-        //var d:Distrito = Distrito(Array<Tributo>?)
+    fun generarDistrito(nDis:Int):ArrayList<Tributo> {
+        var aux= ArrayList<Tributo>()
         var T1= generarTributo(nDis)
         var T2= generarTributo(nDis)
-            aux[0]=T1
-            aux[1]=T2
-        var t:Distrito = Distrito.Builder(aux).build()
+            aux.add(T1)
+            aux.add(T2)
+        var t: ArrayList<Tributo> = Distrito.Builder().dtributo(aux).build()
         return t
     }
 
-    fun generarMapa(nDis:Int):Mundo {
-        var aux= arrayOfNulls<Distrito?>(5)
+    fun generarMundo():Mundo {
+        var aux= ArrayList<Any>()
         for(i in 1..5){
-            aux[i]= generarDistrito(i)
+            aux.add(generarDistrito(i))
         }
-        var t:Mundo = Mundo.Builder(aux).build()
+        var t:Mundo = Mundo.Builder().Arena(aux).build()
         return t
     }
 

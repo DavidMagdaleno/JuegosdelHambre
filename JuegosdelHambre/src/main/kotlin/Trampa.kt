@@ -3,9 +3,6 @@ class Trampa (n:String?, Desc:String?):Item(Desc){
     private var nombre:String?=n
     private var Descrip:String?=Desc
 
-    /*override fun Descripcion(): String {
-        return "Ha cogido un Super-Arma"
-    }*/
 
     class Builder(var nombre:String? = null,var Descrip:String?=null){
         fun nombre(nombre:String):Builder{
@@ -19,5 +16,8 @@ class Trampa (n:String?, Desc:String?):Item(Desc){
         fun build():Trampa{
             return Trampa(nombre, Descrip)
         }
+    }
+    override  fun toString(): String{
+        return "T"
     }
 }
