@@ -1,14 +1,20 @@
-class Medicina (n:String?, v:Int?, Desc:String?):Item(Desc){
+class Medicina (n:String, v:Int, Desc:String):Item(Desc){
 
-    private var nombre:String?=n
-    private var vida:Int?=v
-    private var Descrip:String?=Desc
+    private var nombre:String=n
+    private var vida:Int=v
+    private var Descrip:String=Desc
 
-    /*override fun Descripcion(): String {
-        return "Ha cogido un Super-Arma"
-    }*/
+    fun getNombre(): String {
+        return nombre
+    }
+    fun getVida(): Int {
+        return vida
+    }
+    fun getDescrip(): String {
+        return Descrip
+    }
 
-    class Builder(var nombre:String? = null, var vida:Int? = null,var Descrip:String?=null){
+    class Builder(var nombre:String = "", var vida:Int = 0,var Descrip:String=""){
         fun nombre(nombre:String):Builder{
             this.nombre = nombre
             return this
@@ -24,5 +30,8 @@ class Medicina (n:String?, v:Int?, Desc:String?):Item(Desc){
         fun build():Medicina{
             return Medicina(nombre, vida,Descrip)
         }
+    }
+    override  fun toString(): String{
+        return "M"
     }
 }
